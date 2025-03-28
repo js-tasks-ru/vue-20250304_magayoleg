@@ -10,9 +10,9 @@ const model = defineModel<T>()
 </script>
 
 <template>
-  <select v-model="model" class="select">
-    <option v-for="{ value, text } in options" :key="value" :value>
-      {{ text }}
+  <select class="select" v-model="model">
+    <option v-for="option in options" :key="option.value" :value="option.value">
+      {{ option.text }}
     </option>
   </select>
 </template>
