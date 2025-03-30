@@ -1,18 +1,26 @@
-<script setup>
+<script lang="ts">
 import { computed } from 'vue'
 
-const props = defineProps({
-  title: {
-    type: String,
-    required: true,
+export default {
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+
+    image: {
+      type: String,
+    },
   },
 
-  image: {
-    type: String,
-  },
-})
+  setup(props) {
+    const bgStyle = computed(() => (props.image ? { '--bg-url': `url('${props.image}')` } : undefined))
 
-const bgStyle = computed(() => (props.image ? { '--bg-url': `url('${props.image}')` } : undefined))
+    return {
+      bgStyle,
+    }
+  },
+}
 </script>
 
 <template>
